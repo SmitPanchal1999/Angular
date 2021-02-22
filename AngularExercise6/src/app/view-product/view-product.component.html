@@ -1,0 +1,15 @@
+<app-header></app-header>
+<div class="container text-center">
+    <div *ngIf="product" >
+      <span style="font-size: 30px;font-weight: 600;">  ProductName:&nbsp;&nbsp;</span><span style="font-size: 25px;font-weight: 400;">{{product.productName}}</span>
+        <br>
+        <span style="font-size: 30px;font-weight: 600;">  ProductId:&nbsp;&nbsp;</span><span style="font-size: 25px;font-weight: 400;">{{product.productId}}</span>
+      
+    </div>
+    <div *ngIf="!product">
+        <h3>Invalid Product-Id</h3>
+    </div>
+    
+<a routerLink="/products/list"><button class="btn btn-primary">Back to Products-List</button></a>
+</div>
+<app-footer></app-footer>

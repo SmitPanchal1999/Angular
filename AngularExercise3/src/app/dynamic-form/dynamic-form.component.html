@@ -1,0 +1,11 @@
+<div class="container  text-center" style="margin-top:20px;padding: 20px;border: 2px solid black;">
+    <h1 style="text-decoration: underline;">Dynamic Form</h1>
+    <app-text-input (textInputEvent)="addTextInput($event)"></app-text-input>
+    <app-number-input (numberInputEvent)="addNumberInput($event)"></app-number-input>
+    <app-textarea-input (textareaInputEvent)="addTextAreaInput($event)"></app-textarea-input>
+    <h3 style="margin-top:20px;text-decoration: underline;">Generating Dynamic Form</h3>
+    <div id="form">
+        </div>
+    <div style="height: 50px;"></div>
+</div>
+<div style="height: 50px;"></div>

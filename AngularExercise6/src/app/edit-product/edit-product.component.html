@@ -1,0 +1,12 @@
+<app-header></app-header>
+<div class="container text-center">
+    <div *ngIf="product" >
+        <input type="text" [placeholder]="product.productName" id="editedProductName"> &nbsp;&nbsp; <button class="btn btn-success" (click)="editProduct()">Edit</button>
+    </div>
+    <div *ngIf="!product">
+        <h3>Invalid Product-Id</h3>
+    </div>
+    
+<a routerLink="/products/list"><button class="btn btn-primary">Back to Products-List</button></a>
+</div>
+<app-footer></app-footer>

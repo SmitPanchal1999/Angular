@@ -1,0 +1,22 @@
+<div class="container" style="border-radius: 5px;background-color: #e6f3ff;margin-top: 20px;">
+  <h1 style="color: #3366cc;font-weight: 700;padding-top: 20px;">Angular Directives</h1>
+  <h3 style="margin-top:30px">Font Size Updator</h3>
+  <span style="font-size: 20px;font-weight: 500;">  Write fontsize in px eg.'20px'</span><input type="text" [(ngModel)]="fontsize" placeholder="Write fontsize in px eg.'20px'">
+
+ <p [appFontSize]="fontsize" style="background-color: #00e6e6;font-size: 15px;">Hover me ! 15px => {{fontsize}}</p>
+ <p appFontSize style="background-color: #00e6e6;font-size: 15px;">Hover me ! 15px => 20px(default) </p>
+ <h3 style="margin-top: 30px;">Is Authorized ?</h3>
+ <h4>User allowed tokens-</h4>  
+ <span *ngFor="let token of userTokensArray;let i =index">
+   <p>{{token}}</p>
+   
+ </span>
+ <span *ngFor="let token of userTokensArray;let i =index">
+   
+  <p *ngIf="token!='VIEW_USERS'" style="font-weight:500;">{{token}} :<span style="font-weight: 400;"> Visible</span></p>
+  
+</span>
+ <div style="display: flex;"> <span style="font-weight:500;margin-bottom:30px;">VIEW_USERS :</span><span [appIsAuthorized]="userTokens"> Visible</span></div>
+  <div style="height: 30px;"></div>
+</div>
+<router-outlet></router-outlet>

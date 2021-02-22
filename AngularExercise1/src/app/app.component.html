@@ -1,0 +1,10 @@
+<div style="border: 1px solid black; width: 50%;padding: 50px;margin-top: 50px;margin-left: 50px;background-color: #ffff66;">
+  <h2>Parent Component</h2>
+  <h3>Parent Counter:{{parentCounter}}</h3>
+  <!-- <button class="btn btn-large btn-primary" (click)="incrementTrigger()">Increment Child Counter</button> -->
+  <button class="btn btn-large btn-primary" (click)="incrementChild()">Increment Child Counter</button>
+  <!-- <app-child [parent]="triggerEvent" (childEvent)="incrementCounter()"></app-child> -->
+  <app-child  (childEvent)="incrementParent()"></app-child>
+</div>
+
+<router-outlet></router-outlet>

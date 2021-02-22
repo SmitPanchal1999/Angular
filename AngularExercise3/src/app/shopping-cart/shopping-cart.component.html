@@ -1,0 +1,31 @@
+<div class="container  text-center" style="margin-top:20px;padding: 20px;border: 2px solid black;" >
+    <h1 style="text-decoration: underline;">Shopping Cart</h1>
+    <div  style="margin-top:30px;">
+    <input type="text" id="userInputItem" placeholder="Enter a item name"> <button style="margin-left: 20px;" class="btn btn-large btn-danger" (click)="addItem()">Add item to Cart</button>
+    <p id="userInputMsg" style="color: red;font-size: 15px;font-weight: 500;"></p>
+    </div>
+    <h3 style="margin-top:20px;">Cart Items</h3>
+    <table class="table table-striped table-bordered table-hover" >
+       
+        <tbody>
+            <span style="font-size: 20px;" *ngIf="itemsArray.length==0">No Items</span>
+             <tr *ngFor="let item of itemsArray; let i = index;">
+                   
+               
+              
+                <td style="width: 70%;font-size: 20px;" >
+                    <span style="font-weight: 600;"> Item</span>: {{item.itemName}}
+                </td>
+                <td>
+                    <div class="d-flex align-items-center justify-content-center ">
+                    <span style="font-weight: 600;font-size: 20px;">Qty: </span>
+                    &nbsp; <button class="btn btn-primary btn-small" (click)="decrementQty(i)">-</button>
+                    <span style="font-weight: 600;">&nbsp;{{item.quantity}}&nbsp;</span>
+                    <button class="btn btn-primary" (click)="incrementQty(i)">+</button>&nbsp;&nbsp;
+                    <span (click)="deleteRow(i)"><i style="font-size: 30px;" class="fa fa-trash" aria-hidden="true"></i></span></div>
+                </td>
+            </tr>
+           
+        </tbody>
+    </table>
+</div>
