@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <div class="container ">
+        <form #myForm="ngForm" (ngSubmit)="onSubmit()" style="margin-top: 100px;">
+            <div class="form-group">
+                <label>User Email:</label>
+                <input style="width: 50%;" type="email" #email="ngModel" class="form-control" required
+                pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$' 
+                [class.is-invalid]="email.invalid && (email.dirty || email.touched)" [(ngModel)]="emailVar" name="email">
+                <div *ngIf="email.errors && (email.invalid && (email.dirty || email.touched))">
+                
+                    <span *ngIf="email.errors.required" class="text-danger">Email is required </span>
+                    
+                    <span *ngIf="email.errors.pattern" class="text-danger">Please enter Valid Email </span>
+                </div>
+                
+
+            </div>
+            <div class="form-group">
+                <label>Password:</label>
+                <input  style="width: 50%;" type="password" #password="ngModel" class="form-control" required
+                [class.is-invalid]="password.invalid && (password.dirty || password.touched)" [(ngModel)]="passwordVar"  name="password" minlength="8">
+                <div *ngIf="password.errors && (password.invalid && (password.dirty || password.touched))" >
+                <span *ngIf="password.errors.required" class="text-danger">Password is required </span>    
+                <span *ngIf="password.errors.minlength" class="text-danger">Password must have minimum 8 characters</span>    
+                
+            </div>
+            </div>
+            <button class="btn btn-primary btn-large" [disabled]="myForm.form.invalid" type="submit">Submit</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+.input-text{
+    
+   
+   margin:0 auto;
+   width: 70%;
+  }
+  .container {
+     padding-top: 50px;
+  }
+.innerContainer {
+    width: 100%;
+			max-width: 70%;
+			margin: auto;
+            padding-top:30px;
+            padding-bottom:30px;
+   
+  border: 1px solid #BFBFBF;
+  
+  box-shadow: 10px 10px 5px #aaaaaa;
+    background-color: #cce6ff;
+   
+  }
+  .textLabel{
+      margin-left: 15%;
+      
+  }
+  .showError{
+    margin-left: 15%;
+  }
+  .is-invalidForTextArea{
+      border:1px solid red;
+  }
+.custom-select{
+    height: 40px;
+    width: 30%;
+   
+   
+}
+button:disabled{
+    cursor:no-drop;
+}

@@ -1,0 +1,131 @@
+<div class="container-fluid no-padding" style="background-color: #e9e2e2;margin:0">
+    <div class="container ">
+        <div class="innerContainer" >
+            
+        <form   style="margin-top: 20px;" [formGroup]=registrationForm (ngSubmit)="onSubmit()">
+            <div class="text-center"><h2 class="">Registration Form</h2></div>
+            <div  class="form-group" style="position: relative;margin-top: 20px;">
+                <label class="textLabel">User Name:</label>
+                <input formControlName="userName"  type="text"  class="form-control input-text" 
+                [class.is-invalid]="userName.invalid && (userName.dirty || userName.touched)"  >
+                <div class="showError" *ngIf="userName.errors && (userName.invalid && (userName.dirty || userName.touched))">
+                
+                    <span *ngIf="userName.errors?.required" class="text-danger">Username is required </span>
+                    
+                    <span *ngIf="userName.errors?.minlength" class="text-danger">Please provide minimum 5 characters username </span>
+                    
+                    <span *ngIf="userName.errors?.maxlength" class="text-danger">Username should not be greater than 100 characters</span>
+                </div>
+                
+
+            </div>
+            <div class="form-group">
+                <label class="textLabel">First Name:</label>
+                <input formControlName="firstName"  type="text"  class="form-control input-text" 
+                [class.is-invalid]="firstName.invalid && (firstName.dirty || firstName.touched)"  >
+                <div class="showError" *ngIf="firstName.errors && (firstName.invalid && (firstName.dirty || firstName.touched))">
+                
+                    <span *ngIf="firstName.errors?.required" class="text-danger">firstName is required </span>
+                    
+                    <span *ngIf="firstName.errors?.minlength" class="text-danger">Please provide minimum 5 characters firstName </span>
+                    
+                    <span *ngIf="firstName.errors?.maxlength" class="text-danger">firstName should not be greater than 100 characters</span>
+                </div>
+                
+
+            </div>
+            <div class="form-group">
+                <label class="textLabel">Last Name:</label>
+                <input formControlName="lastName"  type="text"  class="form-control input-text" 
+                [class.is-invalid]="lastName.invalid && (lastName.dirty || lastName.touched)"  >
+                <div class="showError" *ngIf="lastName.errors && (lastName.invalid && (lastName.dirty || lastName.touched))">
+                
+                    <span *ngIf="lastName.errors?.required" class="text-danger">lastName is required </span>
+                    
+                    <span *ngIf="lastName.errors?.minlength" class="text-danger">Please provide minimum 5 characters lastName </span>
+                    
+                    <span *ngIf="lastName.errors?.maxlength" class="text-danger">lastName should not be greater than 100 characters</span>
+                </div>
+                
+
+            </div>
+            <div class="form-group">
+                <label class="textLabel">Gender:</label>&nbsp;&nbsp;
+                <input  formControlName="gender" type="radio" value="male" >
+                <label >Male</label>
+                &nbsp;&nbsp;
+                <input formControlName="gender"  type="radio"  value="female">
+                <label >Female</label>
+                &nbsp;&nbsp;
+                <input formControlName="gender"  type="radio"  value="others">
+                <label >Others</label>
+
+                <div class="showError" *ngIf="gender.errors && (gender.invalid && gender.untouched)">
+                
+                    <span *ngIf="gender.errors?.required" class="text-danger">Please select the gender </span>
+                 </div>
+            </div>
+            <div class="form-group">
+                <label  class="textLabel">Are you a Student?</label>&nbsp;&nbsp;
+                
+                <input formControlName="student" type="checkbox" >
+            </div>   
+            <div formGroupName="address">
+            <div class="form-group">
+                <label  class="textLabel">Street Address:</label><br>
+                <textarea cols="40" class="textLabel" [class.is-invalidForTextArea]="streetAddress.invalid && (streetAddress.dirty || streetAddress.touched)"  formControlName="streetAddress"></textarea>
+                
+                <div class="showError" *ngIf="streetAddress.errors && (streetAddress.invalid && (streetAddress.dirty || streetAddress.touched))">
+                    <span *ngIf="streetAddress.errors?.required" class="text-danger">Street Address is required</span>
+           
+                    <span *ngIf="streetAddress.errors?.maxlength" class="text-danger">Street Address should not be greater than 1000 characters</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="textLabel">City:</label>
+                <input formControlName="city"  type="text"  class="form-control input-text" 
+                [class.is-invalid]="city.invalid && (city.dirty || city.touched)"  >
+                <div class="showError" *ngIf="city.errors && (city.invalid && (city.dirty || city.touched))">
+                    <span *ngIf="city.errors?.required" class="text-danger">City is required</span>
+              
+                    <span *ngIf="city.errors?.maxlength" class="text-danger">city should not be greater than 300 characters</span>
+                </div>
+                
+
+            </div>
+            <div class="form-group">
+                <label class="textLabel">State:</label><br>
+                <select  class="custom-select textLabel" formControlName="state">
+                    <option value="" disabled>Choose your state</option>
+                    <option *ngFor="let st of states;let i=index">{{st}}</option>
+                </select>
+                <div class="textLabel" *ngIf="state.errors && (state.invalid && (state.touched))">
+                
+                    <span *ngIf="state.errors.required" class="text-danger">State is required </span>
+                </div>
+                
+
+            </div>
+            <div class="form-group">
+                <label class="textLabel">Country:</label><br>
+                <select  class="custom-select textLabel" formControlName="country">
+                    <option value="" disabled>Choose your country</option>
+                    <option *ngFor="let ct of countries;let i=index">{{ct}}</option>
+                </select>
+                <div class="textLabel" *ngIf="country.errors && (country.invalid && (country.touched))">
+                
+                    <span *ngIf="country.errors.required" class="text-danger">Country is required </span>
+                </div>
+                
+
+            </div>
+            </div>
+           <br>
+            <div class="text-center">
+            <button style="width:70%" class="btn btn-primary btn-large" [disabled]="registrationForm.invalid" type="submit">register</button>
+            </div>
+        </form>
+        </div>
+        <div style="height: 50px;">
+    </div>
+</div>
